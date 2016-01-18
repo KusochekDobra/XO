@@ -8,8 +8,6 @@ public class Field {
     public final int fieldSize;
     private static final int MIN_COORDINATE = 0;
 
-
-
     private final Figure[][] field ;
 
     public int getSize(){

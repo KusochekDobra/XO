@@ -12,7 +12,6 @@ public class Game {
         this.field = field;
         this.name = name;
     }
-
     public Player[] getPlayers() {
         return players;
     }

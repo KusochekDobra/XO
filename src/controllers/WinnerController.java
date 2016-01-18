@@ -35,23 +35,23 @@ public class WinnerController {
         return null;
     }
 
-    private boolean check(final Field field, final Point startPoint, IPointChanger pointChanger){
-        final Point p1 = startPoint;
-        final Point p2 = pointChanger.next(p1);
-        final Point p3 = pointChanger.next(p2);
+    private boolean check(final Field field, final Point currentPoint, IPointChanger pointChanger){
+        final Figure currentFigure;
+        final Figure nextFigure;
+        final Point nextPoint = pointChanger.next(currentPoint);
 
         try {
-            if(field.getFigure(p1) == null) return false;
-
-            if (field.getFigure(p1) == field.getFigure(p2) &&
-                    field.getFigure(p1) == field.getFigure(p3)){
-                return true;
-            }
-
-        } catch (InvalidPointException e){
-            e.printStackTrace();
+            currentFigure = field.getFigure(currentPoint);
+            nextFigure = field.getFigure(currentPoint);
+        } catch (InvalidPointException e) {
+            return true;//?
         }
-        return false;
+
+        if(currentFigure == null) return false;
+
+        if(currentFigure != nextFigure) return false;
+
+        return check(field, nextPoint, pointChanger);
     }
 
     private interface IPointChanger{
