@@ -20,9 +20,9 @@ public class Field {
     }
 
     public Figure getFigure(final Point point) throws InvalidPointException {
-        if(!checkPoint(point)){
-            throw new InvalidPointException();
-        }
+            if(!checkPoint(point)){
+                throw new InvalidPointException();
+            }
         return field[point.x][point.y];
     }
 
@@ -38,6 +38,6 @@ public class Field {
         return (checkCoordinate(point.x, field.length) && checkCoordinate(point.y, field[point.x].length));
     }
     private boolean checkCoordinate(final int coordinate, final int maxCoordinate){
-        return(coordinate >= MIN_COORDINATE && coordinate <= maxCoordinate);
+        return(coordinate >= MIN_COORDINATE && coordinate < maxCoordinate);
     }
 }
