@@ -1,5 +1,6 @@
 package io.xo;
 
+import controllers.CurrentMoveController;
 import io.xo.exception.InvalidPointException;
 
 import java.awt.*;
@@ -32,6 +33,8 @@ public class Field {
         }
 
         field[point.x][point.y] = figure;
+
+        CurrentMoveController.nextMove();
     }
 
     private boolean checkPoint(final Point point){

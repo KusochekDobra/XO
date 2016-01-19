@@ -15,5 +15,6 @@ public class MoveController {
             throw new AlreadyOccupiedException();
         }
         field.setFigure(point, figure);
+
     }
 }
